@@ -13,7 +13,7 @@ jobs:
       - name: Build psql image
         uses: docker/build-push-action@v4
         with:
-          context: ./.github/scripts
+          context: .
           file: ./.github/scripts/Dockerfile
           push: false
           tags: psql:latest
