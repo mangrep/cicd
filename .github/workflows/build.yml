@@ -19,6 +19,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: /.github/scripts/Dockerfile
+          file: ./.github/scripts/Dockerfile
           push: false
           tags: psql:latest
