@@ -1,0 +1,14 @@
+name: Deploy
+concurrency: ${{ github.event.inputs.environment }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build psql image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./.github/scripts
+          file: ./.github/scripts/Dockerfile
+          push: false
+          tags: psql:latest
