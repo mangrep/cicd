@@ -14,12 +14,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build psql image
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./.github/scripts/Dockerfile
-          push: false
-          tags: psql:latest
+        run: |
+          docker build \
+            -t psql:latest \
+            -f ./.github/scripts/Dockerfile .\
+          
 
       - name: Set db role for additional user
         run: |
