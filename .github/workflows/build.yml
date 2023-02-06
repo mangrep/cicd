@@ -22,3 +22,10 @@ jobs:
           file: ./.github/scripts/Dockerfile
           push: false
           tags: psql:latest
+
+      - name: Set db role for additional user
+        run: |
+          docker run \
+            --entrypoint '/bin/sh' \
+            psql:latest \
+            -c 'chmod +x ./.github/scripts/grant-select-readonly-user.sh && ./.github/scripts/grant-select-readonly-user.sh'
