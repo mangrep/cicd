@@ -28,4 +28,4 @@ jobs:
           docker run \
             --entrypoint '/bin/sh' \
             psql:latest \
-            -c 'chmod +x ./.github/scripts/grant-select-readonly-user.sh && ./.github/scripts/grant-select-readonly-user.sh'
+            -c 'chmod +x /scripts/grant-select-readonly-user.sh && /scripts/grant-select-readonly-user.sh'
