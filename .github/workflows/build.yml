@@ -13,16 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - id: "docker-layer"
+        name: "gcr.io/cloud-builders/docker"
+        entrypoint: bash
+        args:
+          - "-c"
+          - "uname -a"
+
       - name: Build psql image
         run: |
           docker build \
             -t psql:latest \
             -f ./.github/scripts/Dockerfile .\
           
-
-      - name: Set db role for additional user
-        run: |
-          docker run \
-            --entrypoint '/bin/sh' \
-            psql:latest \
-            -c 'chmod +x /scripts/grant-select-readonly-user.sh && /scripts/grant-select-readonly-user.sh'
