@@ -13,16 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - id: "docker-layer"
-        name: "gcr.io/cloud-builders/docker"
-        entrypoint: bash
-        args:
-          - "-c"
-          - "uname -a"
-
-      - name: Build psql image
+      - name: Install PSQL client
         run: |
-          docker build \
-            -t psql:latest \
-            -f ./.github/scripts/Dockerfile .\
-          
+          sudo apt update && sudo apt install -y postgresql-client
