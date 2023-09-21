@@ -18,8 +18,7 @@ jobs:
           python-version: "3.10"
       - name: Install system dependencies
         run: |
-          apt update
-          apt install -y sudo
+          whoami
       - name: Wait for 60 seconds
         run: sleep 60
       - name: Complete
