@@ -18,7 +18,8 @@ jobs:
           python-version: "3.10"
       - name: Install system dependencies
         run: |
-          sudo apt-get install -y gettext      
+          which sudo
+          #sudo apt-get install -y gettext      
       - name: Wait for 60 seconds
         run: sleep 60
       - name: Complete
